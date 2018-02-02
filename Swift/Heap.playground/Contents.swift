@@ -21,7 +21,7 @@ struct Heap<T: Comparable> {
         guard let r = heap.first else { return nil }
         heap.swapAt(0, heap.count - 1)
         heap.removeLast()
-        sinkElement(at: 0)
+        sinkRoot()
         return r
     }
 }
@@ -45,17 +45,16 @@ private extension Heap {
         }
     }
     
-    mutating func sinkElement(at index: Int) {
-        guard index < heap.count else { return }
-        var current = index
+    mutating func sinkRoot() {
+        var current = 0
         while true {
             let (leftChild, rightChild) = childrenIndex(of: current)
             if leftChild < heap.count, rightChild < heap.count {
                 let winnerChild = comparator(heap[leftChild], heap[rightChild]) ? leftChild : rightChild
-                heap.swapAt(current, winnerChild)
+                heap.swapAt(winnerChild, current)
                 current = winnerChild
-            } else if leftChild < heap.count, !comparator(heap[index], heap[leftChild]) {
-                heap.swapAt(current, leftChild)
+            } else if leftChild < heap.count, comparator(heap[leftChild], heap[current]) {
+                heap.swapAt(leftChild, current)
                 current = leftChild
             } else {    // we don't need the right child case if we use array
                 break

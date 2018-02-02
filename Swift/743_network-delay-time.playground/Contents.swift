@@ -24,7 +24,7 @@ struct Heap<T: Comparable> {
     var isEmpty: Bool { return heap.isEmpty }
     var count: Int { return heap.count }
     
-    init(isMinHeap: Bool = true) {
+    init(isMinHeap: Bool) {
         self.isMinHeap = isMinHeap
         comparator = isMinHeap ? { $0 < $1 } : { $0 > $1 }
     }
@@ -38,7 +38,7 @@ struct Heap<T: Comparable> {
         guard let r = heap.first else { return nil }
         heap.swapAt(0, heap.count - 1)
         heap.removeLast()
-        sinkElement(at: 0)
+        sinkRoot()
         return r
     }
 }
@@ -62,17 +62,16 @@ private extension Heap {
         }
     }
     
-    mutating func sinkElement(at index: Int) {
-        guard index < heap.count else { return }
-        var current = index
+    mutating func sinkRoot() {
+        var current = 0
         while true {
             let (leftChild, rightChild) = childrenIndex(of: current)
             if leftChild < heap.count, rightChild < heap.count {
                 let winnerChild = comparator(heap[leftChild], heap[rightChild]) ? leftChild : rightChild
-                heap.swapAt(current, winnerChild)
+                heap.swapAt(winnerChild, current)
                 current = winnerChild
-            } else if leftChild < heap.count, !comparator(heap[index], heap[leftChild]) {
-                heap.swapAt(current, leftChild)
+            } else if leftChild < heap.count, comparator(heap[leftChild], heap[current]) {
+                heap.swapAt(leftChild, current)
                 current = leftChild
             } else {    // we don't need the right child case if we use array
                 break
@@ -106,7 +105,7 @@ class Solution {
     func networkDelayTime(_ times: [[Int]], _ N: Int, _ K: Int) -> Int {
         var visitedNodesVsTravelTime = [K: 0]
         var edgeRecords = edgeDict(edges: times.map { Edge(parameters: $0) })   // group edges by source node
-        var edgesToTravel = Heap<Edge>()
+        var edgesToTravel = Heap<Edge>(isMinHeap: true)
         for edge in edgeRecords[K] ?? [] {  // first edges from the initial node
             edgesToTravel.push(element: edge)
         }
