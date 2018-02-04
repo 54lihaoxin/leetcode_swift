@@ -24,9 +24,9 @@
  The length of words[i] will be in the range [1, 30].
  */
 
-class TreeNode {
+class TrieNode {
     let character: Character
-    var children: [Character: TreeNode] = [:]
+    var children: [Character: TrieNode] = [:]
     var isLastCharacterInAWord = false
     var longestCharaterArray: [Character] {
         guard isLastCharacterInAWord else { return [] }
@@ -50,7 +50,7 @@ class TreeNode {
         guard let first = word.first else { return nil }
         character = first
         let droppedFirst = word.dropFirst()
-        buildTree(substring: droppedFirst)
+        buildTrie(substring: droppedFirst)
     }
     
     /// same as `init?(word: String)`, but use `Substring` for input to avoid producing lots of strings
@@ -58,23 +58,23 @@ class TreeNode {
         guard let first = word.first else { return nil }
         character = first
         let droppedFirst = word.dropFirst()
-        buildTree(substring: droppedFirst)
+        buildTrie(substring: droppedFirst)
     }
     
-    func buildTree(substring: Substring) {
+    func buildTrie(substring: Substring) {
         guard let first = substring.first else {
             isLastCharacterInAWord = true
             return
         }
         if let child = children[first] {
-            child.buildTree(substring: substring.dropFirst())
+            child.buildTrie(substring: substring.dropFirst())
         } else {
-            children[first] = TreeNode(word: substring)
+            children[first] = TrieNode(word: substring)
         }
     }
 }
 
-extension TreeNode: CustomStringConvertible {
+extension TrieNode: CustomStringConvertible {
     var description: String {
         return "[\(character)], isLast = \(isLastCharacterInAWord), children: \n\t\(children)"
     }
@@ -82,13 +82,17 @@ extension TreeNode: CustomStringConvertible {
 
 class Solution {
     func longestWord(_ words: [String]) -> String {
-        var d: [Character: TreeNode] = [:]
+        
+        // We can (1) put all words in a Set and then check prefix for all of them, or (3) sort all words and then loop through them.
+        // But (3) the Trie solution is most space efficient and fastest, and thus most interesting to try, right?
+        
+        var d: [Character: TrieNode] = [:]
         for w in words {
             guard let first = w.first else { continue }
             if let root = d[first] {
-                root.buildTree(substring: w.dropFirst())
+                root.buildTrie(substring: w.dropFirst())
             } else {
-                d[first] = TreeNode(word: w)
+                d[first] = TrieNode(word: w)
             }
         }
         
