@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		46BE78952116C22400529876 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BE788C2116C15800529876 /* main.swift */; };
 		46F40A1921175C5100C0BB44 /* TwoDimensionalMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F40A1821175C5100C0BB44 /* TwoDimensionalMatrix.swift */; };
+		46F40A242117988600C0BB44 /* Challenge_885.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F40A1D211795BE00C0BB44 /* Challenge_885.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 		46BE788C2116C15800529876 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		46BE78972116C84500529876 /* Challenge_695.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_695.swift; sourceTree = "<group>"; };
 		46F40A1821175C5100C0BB44 /* TwoDimensionalMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoDimensionalMatrix.swift; sourceTree = "<group>"; };
+		46F40A1D211795BE00C0BB44 /* Challenge_885.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_885.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				46BE78992116C85000529876 /* Easy */,
+				46F40A20211795E000C0BB44 /* Medium */,
 				46BE788C2116C15800529876 /* main.swift */,
 				46F40A1821175C5100C0BB44 /* TwoDimensionalMatrix.swift */,
 			);
@@ -73,6 +76,14 @@
 				46BE78972116C84500529876 /* Challenge_695.swift */,
 			);
 			name = Easy;
+			sourceTree = "<group>";
+		};
+		46F40A20211795E000C0BB44 /* Medium */ = {
+			isa = PBXGroup;
+			children = (
+				46F40A1D211795BE00C0BB44 /* Challenge_885.swift */,
+			);
+			name = Medium;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46BE78952116C22400529876 /* main.swift in Sources */,
+				46F40A242117988600C0BB44 /* Challenge_885.swift in Sources */,
 				46F40A1921175C5100C0BB44 /* TwoDimensionalMatrix.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,8 @@
 
 import Foundation
 
+// NOTE: add the corresponding "Challenge_XXXX.swift" file to the target membership.
+
 print("[\(Challenge.name)] begins")
 Challenge.run()
 print("[\(Challenge.name)] ends")
