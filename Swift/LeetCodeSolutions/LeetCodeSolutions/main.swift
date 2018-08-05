@@ -8,5 +8,6 @@
 
 import Foundation
 
-print("Hello, World!")
-
+print("[\(Challenge.name)] begins")
+Challenge.run()
+print("[\(Challenge.name)] ends")
