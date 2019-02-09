@@ -46,7 +46,7 @@ import Foundation
 
 enum Challenge {
     
-    static let name = "Challenge 984"
+    static let name = "Challenge 985"
     
     static func run() {
         let solution = Solution()
