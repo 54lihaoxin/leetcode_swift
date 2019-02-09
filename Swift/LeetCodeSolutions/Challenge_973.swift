@@ -54,6 +54,15 @@ enum Challenge {
     }
 }
 
+final class FasterButFatterSolution {
+    func kClosest(_ points: [[Int]], _ K: Int) -> [[Int]] {
+        let sortedPoints = points.sorted {
+            ($0[0] * $0[0] + $0[1] * $0[1]) < ($1[0] * $1[0] + $1[1] * $1[1])
+        }
+        return Array(sortedPoints.prefix(K))
+    }
+}
+
 final class Solution {
     func kClosest(_ points: [[Int]], _ K: Int) -> [[Int]] {
         let heap = Heap<Point>(isMinHeap: false)
