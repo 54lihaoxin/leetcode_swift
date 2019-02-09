@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		46BE78952116C22400529876 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BE788C2116C15800529876 /* main.swift */; };
 		46F40A1921175C5100C0BB44 /* TwoDimensionalMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F40A1821175C5100C0BB44 /* TwoDimensionalMatrix.swift */; };
+		AC6EAB5A220E991200BDBBAB /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6EAB59220E991200BDBBAB /* Heap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,7 @@
 		AC6EAB53220E7D9F00BDBBAB /* Challenge_949.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_949.swift; sourceTree = "<group>"; };
 		AC6EAB55220E924F00BDBBAB /* Challenge_985.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_985.swift; sourceTree = "<group>"; };
 		AC6EAB57220E955300BDBBAB /* Challenge_976.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_976.swift; sourceTree = "<group>"; };
+		AC6EAB59220E991200BDBBAB /* Heap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				46F40A20211795E000C0BB44 /* Medium */,
 				46BE788C2116C15800529876 /* main.swift */,
 				46F40A1821175C5100C0BB44 /* TwoDimensionalMatrix.swift */,
+				AC6EAB59220E991200BDBBAB /* Heap.swift */,
 			);
 			path = LeetCodeSolutions;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC6EAB5A220E991200BDBBAB /* Heap.swift in Sources */,
 				46BE78952116C22400529876 /* main.swift in Sources */,
 				46F40A1921175C5100C0BB44 /* TwoDimensionalMatrix.swift in Sources */,
 			);
