@@ -55,15 +55,6 @@ enum Challenge {
     }
 }
 
-final class FasterButFatterSolution {
-    func kClosest(_ points: [[Int]], _ K: Int) -> [[Int]] {
-        let sortedPoints = points.sorted {
-            ($0[0] * $0[0] + $0[1] * $0[1]) < ($1[0] * $1[0] + $1[1] * $1[1])
-        }
-        return Array(sortedPoints.prefix(K))
-    }
-}
-
 final class Solution {
     func powerfulIntegers(_ x: Int, _ y: Int, _ bound: Int) -> [Int] {
         var result = Set<Int>()
