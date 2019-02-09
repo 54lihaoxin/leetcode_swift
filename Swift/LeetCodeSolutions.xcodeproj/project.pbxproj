@@ -36,6 +36,7 @@
 		AC6EAB57220E955300BDBBAB /* Challenge_976.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_976.swift; sourceTree = "<group>"; };
 		AC6EAB59220E991200BDBBAB /* Heap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		AC6EAB5C220E9AF000BDBBAB /* Challenge_973.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_973.swift; sourceTree = "<group>"; };
+		ACD2E087220F2C510017BC30 /* Challenge_970.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_970.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +82,7 @@
 			children = (
 				46BE78972116C84500529876 /* Challenge_695.swift */,
 				AC6EAB53220E7D9F00BDBBAB /* Challenge_949.swift */,
+				ACD2E087220F2C510017BC30 /* Challenge_970.swift */,
 				AC6EAB5C220E9AF000BDBBAB /* Challenge_973.swift */,
 				AC6EAB57220E955300BDBBAB /* Challenge_976.swift */,
 				AC2F4E4D220E761D00E36142 /* Challenge_984.swift */,
