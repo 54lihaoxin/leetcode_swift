@@ -69,9 +69,8 @@
 			children = (
 				46BE78992116C85000529876 /* Easy */,
 				46F40A20211795E000C0BB44 /* Medium */,
+				AC6EAB5B220E9A9D00BDBBAB /* Utilities */,
 				46BE788C2116C15800529876 /* main.swift */,
-				46F40A1821175C5100C0BB44 /* TwoDimensionalMatrix.swift */,
-				AC6EAB59220E991200BDBBAB /* Heap.swift */,
 			);
 			path = LeetCodeSolutions;
 			sourceTree = "<group>";
@@ -94,6 +93,15 @@
 				46F40A1D211795BE00C0BB44 /* Challenge_885.swift */,
 			);
 			name = Medium;
+			sourceTree = "<group>";
+		};
+		AC6EAB5B220E9A9D00BDBBAB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				46F40A1821175C5100C0BB44 /* TwoDimensionalMatrix.swift */,
+				AC6EAB59220E991200BDBBAB /* Heap.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
