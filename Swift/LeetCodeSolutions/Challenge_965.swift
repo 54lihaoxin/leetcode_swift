@@ -54,42 +54,13 @@ enum Challenge {
 
 final class Solution {
     func isUnivalTree(_ root: TreeNode?) -> Bool {
-        guard let root = root else {
-            return true
-        }
-        
-        return isUnivalTreeForParentValue(root.val, root.left) && isUnivalTreeForParentValue(root.val, root.right)
+        guard let root = root else { return true }
+        return isUnivalTreeForParentValue(root.val, root)
     }
     
     func isUnivalTreeForParentValue(_ parentValue: Int, _ root: TreeNode?) -> Bool {
-        guard let root = root else {
-            return true
-        }
-        
-        guard root.val == parentValue else {
-            return false
-        }
-        
-        if let leftNode = root.left {
-            if leftNode.val == parentValue {
-                if !isUnivalTreeForParentValue(parentValue, leftNode) {
-                    return false
-                }
-            } else {
-                return false
-            }
-        }
-        
-        if let rightNode = root.right {
-            if rightNode.val == parentValue {
-                if !isUnivalTreeForParentValue(parentValue, rightNode) {
-                    return false
-                }
-            } else {
-                return false
-            }
-        }
-        
-        return true
+        guard let root = root else { return true }
+        guard root.val == parentValue else { return false }
+        return isUnivalTreeForParentValue(parentValue, root.left) && isUnivalTreeForParentValue(parentValue, root.right)
     }
 }
