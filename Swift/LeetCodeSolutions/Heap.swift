@@ -17,6 +17,14 @@ final class Heap<T: Comparable> {
     var isEmpty: Bool { return heap.isEmpty }
     var count: Int { return heap.count }
     
+    /// This is mostly for unit tests and debugging
+    var isValid: Bool {
+        for i in 1..<heap.count where !comparator(heap[parentIndex(of: i)], heap[i]) {
+            return false
+        }
+        return true
+    }
+    
     init(isMinHeap: Bool) {
         self.isMinHeap = isMinHeap
         comparator = isMinHeap ? { $0 < $1 } : { $0 > $1 }
@@ -60,8 +68,12 @@ private extension Heap {
             let (leftChild, rightChild) = childrenIndex(of: current)
             if leftChild < heap.count, rightChild < heap.count {
                 let winnerChild = comparator(heap[leftChild], heap[rightChild]) ? leftChild : rightChild
-                heap.swapAt(winnerChild, current)
-                current = winnerChild
+                if comparator(heap[winnerChild], heap[current]) {
+                    heap.swapAt(winnerChild, current)
+                    current = winnerChild
+                } else {
+                    break
+                }
             } else if leftChild < heap.count, comparator(heap[leftChild], heap[current]) {
                 heap.swapAt(leftChild, current)
                 current = leftChild
