@@ -27,7 +27,7 @@ final class Heap<T: Comparable> {
         riseElement(at: heap.count - 1)
     }
     
-    func pop() -> T? {
+    @discardableResult func pop() -> T? {
         guard let r = heap.first else { return nil }
         heap.swapAt(0, heap.count - 1)
         heap.removeLast()
