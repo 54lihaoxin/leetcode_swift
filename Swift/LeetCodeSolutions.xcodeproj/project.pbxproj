@@ -31,6 +31,7 @@
 		46F40A1D211795BE00C0BB44 /* Challenge_885.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_885.swift; sourceTree = "<group>"; };
 		AC2F4E4D220E761D00E36142 /* Challenge_984.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_984.swift; sourceTree = "<group>"; };
 		AC6EAB53220E7D9F00BDBBAB /* Challenge_949.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_949.swift; sourceTree = "<group>"; };
+		AC6EAB55220E924F00BDBBAB /* Challenge_985.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_985.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +78,7 @@
 				46BE78972116C84500529876 /* Challenge_695.swift */,
 				AC6EAB53220E7D9F00BDBBAB /* Challenge_949.swift */,
 				AC2F4E4D220E761D00E36142 /* Challenge_984.swift */,
+				AC6EAB55220E924F00BDBBAB /* Challenge_985.swift */,
 			);
 			name = Easy;
 			sourceTree = "<group>";
