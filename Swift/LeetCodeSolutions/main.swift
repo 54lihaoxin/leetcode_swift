@@ -9,7 +9,7 @@
 import Foundation
 
 let challenges: [Challenge.Type] = [
-    Challenge_509.self,
+//    Challenge_509.self,
 //    Challenge_695.self,
 //    Challenge_885.self,
 //    Challenge_949.self,
@@ -19,6 +19,7 @@ let challenges: [Challenge.Type] = [
 //    Challenge_976.self,
 //    Challenge_984.self,
 //    Challenge_985.self,
+    Challenge_1137.self,
 ]
 
 challenges.forEach { challenge in
