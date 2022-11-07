@@ -38,18 +38,18 @@
 
 import Foundation
 
-enum Challenge {
+enum Challenge_984: Challenge {
     
     static let name = "Challenge 984"
     
-    static func run() {
+    static func runTests() {
         let solution = Solution()
         guard "bba" == solution.strWithout3a3b(1, 2) else { fatalError() }
         print("All tests passed")
     }
 }
 
-final class Solution {
+fileprivate final class Solution {
     func strWithout3a3b(_ A: Int, _ B: Int) -> String {
         let moreChar: String
         let lessChar: String

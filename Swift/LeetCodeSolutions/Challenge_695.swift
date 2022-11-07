@@ -33,11 +33,11 @@
 
 import Foundation
 
-enum Challenge {
+enum Challenge_695: Challenge {
     
     static let name = "Challenge 695"
     
-    static func run() {
+    static func runTests() {
         let solution = Solution()
         guard 0 == solution.maxAreaOfIsland([[]]) else { fatalError() }
         guard 0 == solution.maxAreaOfIsland([[0,0,0,0,0,0,0,0]]) else { fatalError() }
@@ -57,7 +57,7 @@ enum Challenge {
     }
 }
 
-final class Solution {
+fileprivate final class Solution {
     
     func maxAreaOfIsland(_ grid: [[Int]]) -> Int {
         return TwoDimensionalWorld(matrix: grid).exploreForMaxIslandSize()

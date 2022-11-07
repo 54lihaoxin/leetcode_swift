@@ -44,18 +44,18 @@
 
 import Foundation
 
-enum Challenge {
+enum Challenge_976: Challenge {
     
     static let name = "Challenge 976"
     
-    static func run() {
+    static func runTests() {
         let solution = Solution()
         guard 0 == solution.largestPerimeter([1,2,3]) else { fatalError() }
         print("All tests passed")
     }
 }
 
-final class Solution {
+fileprivate final class Solution {
     func largestPerimeter(_ A: [Int]) -> Int {
         let sortedEdges = A.sorted()
         for (i, edge) in sortedEdges.enumerated().reversed() where i >= 2 {

@@ -19,8 +19,9 @@ struct TwoDimensionalMatrixLocation: Hashable {
     let row: Int
     let column: Int
     
-    var hashValue: Int {
-        return row.hashValue ^ column.hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(row)
+        hasher.combine(column)
     }
 }
 

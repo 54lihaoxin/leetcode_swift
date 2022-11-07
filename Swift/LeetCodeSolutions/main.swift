@@ -8,8 +8,21 @@
 
 import Foundation
 
-// NOTE: add the corresponding "Challenge_XXXX.swift" file to the target membership.
+let challenges: [Challenge.Type] = [
+//    Challenge_695.self,
+//    Challenge_885.self,
+//    Challenge_949.self,
+//    Challenge_965.self,
+//    Challenge_970.self,
+//    Challenge_973.self,
+//    Challenge_976.self,
+//    Challenge_984.self,
+    Challenge_985.self,
+]
 
-print("[\(Challenge.name)] begins")
-Challenge.run()
-print("[\(Challenge.name)] ends")
+challenges.forEach { challenge in
+    print("[\(challenge.name)] begins")
+    challenge.runTests()
+    print("[\(challenge.name)] ends")
+    print()
+}

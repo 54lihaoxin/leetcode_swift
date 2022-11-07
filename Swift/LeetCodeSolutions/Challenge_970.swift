@@ -44,18 +44,18 @@
 
 import Foundation
 
-enum Challenge {
+enum Challenge_970: Challenge {
     
     static let name = "Challenge 970"
     
-    static func run() {
+    static func runTests() {
         let solution = Solution()
         guard [2,3,4,5,7,9,10] == solution.powerfulIntegers(2, 3, 10) else { fatalError() }
         print("All tests passed")
     }
 }
 
-final class Solution {
+fileprivate final class Solution {
     func powerfulIntegers(_ x: Int, _ y: Int, _ bound: Int) -> [Int] {
         var result = Set<Int>()
         

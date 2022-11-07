@@ -40,11 +40,11 @@
 
 import Foundation
 
-enum Challenge {
+enum Challenge_885: Challenge {
     
     static let name = "Challenge 885"
     
-    static func run() {
+    static func runTests() {
         let solution = Solution()
         guard 1 == solution.numRescueBoats([1,2], 3) else { fatalError() }
         guard 3 == solution.numRescueBoats([3,2,2,1], 3) else { fatalError() }
@@ -53,7 +53,7 @@ enum Challenge {
     }
 }
 
-final class Solution {
+fileprivate final class Solution {
     
     func numRescueBoats(_ people: [Int], _ limit: Int) -> Int {
         let sortedPeople = people.sorted()

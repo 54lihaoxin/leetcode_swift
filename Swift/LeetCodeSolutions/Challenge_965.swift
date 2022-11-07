@@ -37,11 +37,11 @@
 
 import Foundation
 
-enum Challenge {
+enum Challenge_965: Challenge {
     
     static let name = "Challenge 965"
     
-    static func run() {
+    static func runTests() {
         let solution = Solution()
         guard false == solution.isUnivalTree({
             let root = TreeNode(1)
@@ -52,7 +52,7 @@ enum Challenge {
     }
 }
 
-final class Solution {
+fileprivate final class Solution {
     func isUnivalTree(_ root: TreeNode?) -> Bool {
         guard let root = root else { return true }
         return isUnivalTreeForParentValue(root.val, root)

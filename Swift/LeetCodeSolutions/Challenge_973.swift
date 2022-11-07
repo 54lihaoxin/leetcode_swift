@@ -42,11 +42,11 @@
 
 import Foundation
 
-enum Challenge {
+enum Challenge_973: Challenge {
     
     static let name = "Challenge 973"
     
-    static func run() {
+    static func runTests() {
         let solution = Solution()
         guard [[-2,2]] == solution.kClosest([[1,3],[-2,2]], 1) else { fatalError() }
         guard Set([[-11,17],[10,25],[25,19],[29,14],[5,-37],[-29,-29]]) == Set(solution.kClosest([[-93,70],[-22,-64],[-86,-33],[93,-74],[-7,-78],[5,-37],[-11,-84],[-29,-29],[-43,-17],[-11,17],[9,-64],[10,25],[29,14],[25,19],[42,71],[52,30],[-76,19],[66,40],[99,-61]], 6)) else { fatalError() }
@@ -63,7 +63,7 @@ final class FasterButFatterSolution {
     }
 }
 
-final class Solution {
+fileprivate final class Solution {
     func kClosest(_ points: [[Int]], _ K: Int) -> [[Int]] {
         let heap = Heap<Point>(isMinHeap: false)
         points.forEach {

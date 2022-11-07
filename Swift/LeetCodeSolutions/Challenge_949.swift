@@ -37,11 +37,11 @@
 
 import Foundation
 
-enum Challenge {
+enum Challenge_949: Challenge {
     
     static let name = "Challenge 949"
     
-    static func run() {
+    static func runTests() {
         let solution = Solution()
         guard "" == solution.largestTimeFromDigits([5, 5, 5, 5]) else { fatalError() }
         guard "23:41" == solution.largestTimeFromDigits([1, 2, 3, 4]) else { fatalError() }
@@ -51,7 +51,7 @@ enum Challenge {
     }
 }
 
-final class Solution {
+fileprivate final class Solution {
     func largestTimeFromDigits(_ A: [Int]) -> String {
         
         // brute force it since the scope is small
