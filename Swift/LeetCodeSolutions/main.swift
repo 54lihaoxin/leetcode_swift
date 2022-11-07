@@ -8,7 +8,18 @@
 
 import Foundation
 
-let challenges: [Challenge.Type] = [
+final class TestDriver {
+    static func runTestsOfChallenges(_ challenges: [Challenge.Type]) {
+        challenges.forEach { challenge in
+            print("[\(challenge.name)] begins")
+            challenge.runTests()
+            print("[\(challenge.name)] ends")
+            print()
+        }
+    }
+}
+
+TestDriver.runTestsOfChallenges([
     Challenge_70.self,
 //    Challenge_509.self,
 //    Challenge_695.self,
@@ -21,11 +32,4 @@ let challenges: [Challenge.Type] = [
 //    Challenge_984.self,
 //    Challenge_985.self,
 //    Challenge_1137.self,
-]
-
-challenges.forEach { challenge in
-    print("[\(challenge.name)] begins")
-    challenge.runTests()
-    print("[\(challenge.name)] ends")
-    print()
-}
+])
