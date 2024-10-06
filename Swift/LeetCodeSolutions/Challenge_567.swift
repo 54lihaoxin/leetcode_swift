@@ -47,6 +47,8 @@ enum Challenge_567: Challenge {
 
     static func runTests() {
         let solution = Solution()
+        guard solution.checkInclusion("ab", "ba") else { fatalError() }
+        guard solution.checkInclusion("ab", "eidba") else { fatalError() }
         guard solution.checkInclusion("ab", "eidbaooz") else { fatalError() }
         guard !solution.checkInclusion("ab", "eidboaoz") else { fatalError() }
         guard solution.checkInclusion("adc", "dcda") else { fatalError() }
@@ -58,192 +60,74 @@ enum Challenge_567: Challenge {
 }
 
 fileprivate final class Solution {
-    // a helper for O(1) letter count access backed by an array
-    private class CharacterCounter: Equatable {
-        private(set) var letterCounts = Array(repeating: 0, count: 26)
+    // A helper for O(1) letter count access backed by an array.
+    private class CharacterCounter {
+        private(set) var goalPermutation = Array(repeating: 0, count: 26)
+        private(set) var slidingWindow = Array(repeating: 0, count: 26)
+        private(set) var numberOfMatches = 0
 
-        init(_ string: String) {
-            for character in string {
-                add(character)
+        var foundMatch: Bool {
+            numberOfMatches == 26
+        }
+
+        init(goal: String, initialWindow: String) {
+            for character in goal {
+                goalPermutation[index(for: character)] += 1
+            }
+            for character in initialWindow {
+                slidingWindow[index(for: character)] += 1
+            }
+            for i in 0..<26 {
+                if goalPermutation[i] == slidingWindow[i] {
+                    numberOfMatches += 1
+                }
             }
         }
 
-        func reset() {
-            letterCounts = Array(repeating: 0, count: 26)
-        }
+        func shiftWindow(remove removedCharacter: Character, add addedCharacter: Character) {
+            let indexOfRemovedCharacter = index(for: removedCharacter)
+            let indexOfAddedCharacter = index(for: addedCharacter)
+            let removedWasMatch = slidingWindow[indexOfRemovedCharacter] == goalPermutation[indexOfRemovedCharacter]
+            let addedWasMatch = slidingWindow[indexOfAddedCharacter] == goalPermutation[indexOfAddedCharacter]
 
-        func add(_ character: Character) {
-            letterCounts[index(for: character)] += 1
-        }
+            slidingWindow[indexOfRemovedCharacter] -= 1
+            slidingWindow[indexOfAddedCharacter] += 1
 
-        func remove(_ character: Character) {
-            letterCounts[index(for: character)] -= 1
-        }
+            let removedIsMatch = slidingWindow[indexOfRemovedCharacter] == goalPermutation[indexOfRemovedCharacter]
+            let addedIsMatch = slidingWindow[indexOfAddedCharacter] == goalPermutation[indexOfAddedCharacter]
 
-        func has(_ character: Character) -> Bool {
-            letterCounts[index(for: character)] > 0
-        }
+            if removedWasMatch, !removedIsMatch {
+                numberOfMatches -= 1
+            } else if !removedWasMatch, removedIsMatch {
+                numberOfMatches += 1
+            }
 
-        static func == (lhs: CharacterCounter, rhs: CharacterCounter) -> Bool {
-            lhs.letterCounts == rhs.letterCounts
+            if addedWasMatch, !addedIsMatch {
+                numberOfMatches -= 1
+            } else if !addedWasMatch, addedIsMatch {
+                numberOfMatches += 1
+            }
         }
 
         private func index(for character: Character) -> Int {
-            Int(truncatingIfNeeded: (UnicodeScalar("\(character)")?.value ?? 0) - UnicodeScalar("a").value)
+            // `Unicode.Scalar` value type is `UInt32`, which needs to be converted into `Int`.
+            Int(truncatingIfNeeded: (Unicode.Scalar("\(character)")?.value ?? 0) - Unicode.Scalar("a").value)
         }
     }
-
-    // MARK: - V3
 
     func checkInclusion(_ s1: String, _ s2: String) -> Bool {
-        func letterDistance(a: [Character: Int], b: [Character: Int]) -> Int {
-            var distance = 0
-            for character in Set(a.keys).union(Set(b.keys)) {
-                if let countA = a[character], let countB = b[character] {
-                    distance += abs(countA - countB)
-                } else if let countA = a[character], b[character] == nil {
-                    distance += countA
-                } else if a[character] == nil, let countB = b[character] {
-                    distance += countB
-                }
-            }
-            return distance
-        }
-
         if s1.isEmpty { return true }
         guard s1.count <= s2.count, !s2.isEmpty else { return false }
 
-        let windowSize = s1.count
-        let letterCount = s1.reduce(into: [Character: Int]()) { counts, letter in
-            counts[letter, default: 0] += 1
+        let counter = CharacterCounter(goal: s1, initialWindow: String(s2.prefix(s1.count)))
+        if counter.foundMatch {
+            return true
         }
-        var slidingWindow = s2[0..<windowSize].reduce(into: [Character: Int]()) { counts, letter in
-            counts[letter, default: 0] += 1
-        }
-//        print("letterCount: \(letterCount)")
-//        print("slidingWindow: \(slidingWindow)")
-
-        var totalSkips = 0
-
-        var i = 0
-        while i <= s2.count - windowSize {
-            //print("i: \(i), slidingWindow: \(slidingWindow)")
-            if letterCount == slidingWindow {
-                print("totalSkips: \(totalSkips)")
+        for i in 0..<(s2.count - s1.count) {
+            counter.shiftWindow(remove: s2[i], add: s2[i + s1.count])
+            if counter.foundMatch {
                 return true
             }
-
-            let letterDistance = letterDistance(a: letterCount, b: slidingWindow)
-            let charactersToSkip = max(1, letterDistance / 2)
-            print("charactersToSkip: \(charactersToSkip)")
-
-            totalSkips += charactersToSkip
-
-            for j in i..<i+charactersToSkip {
-                if slidingWindow[Character(String(s2[j]))] == 1 {
-                    slidingWindow[Character(String(s2[j]))] = nil // do not set to 0, otherwise dict comparison will fail
-                } else {
-                    slidingWindow[Character(String(s2[j])), default: 0] -= 1
-                }
-                if j + windowSize < s2.count {
-                    slidingWindow[Character(String(s2[j + windowSize])), default: 0] += 1
-                } else {
-                    return false // the sliding window hits the boundary
-                }
-
-                //print("i: \(i), charactersToSkip: \(charactersToSkip), slidingWindow: \(slidingWindow)")
-            }
-            i += charactersToSkip
-
-            //print("i: \(i), charactersToSkip: \(charactersToSkip), slidingWindow: \(slidingWindow)")
-        }
-
-        print("totalSkips: \(totalSkips)")
-
-        return false
-    }
-
-    // MARK: - V2
-
-    // Replace the v1 dictionary with the array-backed `CharacterCounter`, still slow and buggy
-    func checkInclusion_v2(_ s1: String, _ s2: String) -> Bool {
-        if s1.isEmpty { return true }
-        guard s1.count <= s2.count, !s2.isEmpty else { return false }
-
-        var i = 0
-        var matchCount = 0 // number of consecutive matching characters while scanning s2
-        let targetCounter = CharacterCounter(s1)
-        let slidingCounter = CharacterCounter("")
-
-        while i < s2.count {
-            let currentCharacter = Character(String(s2[i]))
-            if targetCounter.has(currentCharacter) {
-                matchCount = min(matchCount + 1, s1.count)
-                slidingCounter.add(currentCharacter)
-                //print("\(currentCharacter) (i: \(i)), currentPermutation: \(currentPermutation)")
-                if matchCount == s1.count {
-                    if i >= s1.count {
-                        // drop the out-out-window character
-                        let letterToDrop = Character(String(s2[i - s1.count]))
-                        slidingCounter.remove(letterToDrop)
-                    }
-
-                    if targetCounter == slidingCounter {
-                        return true
-                    }
-                }
-            } else {
-                matchCount = 0
-                slidingCounter.reset()
-            }
-            //print("\(currentCharacter) (i: \(i)), currentPermutation: \(currentPermutation)")
-            i += 1
-        }
-
-        return false
-    }
-
-    // MARK: - V1
-
-    // Too slow because the dictionary check happens on every character. Takes ~6s on MacBook Air 2010.
-    func checkInclusion_v1(_ s1: String, _ s2: String) -> Bool {
-        if s1.isEmpty { return true }
-        guard s1.count <= s2.count, !s2.isEmpty else { return false }
-
-        let letterCount = s1.reduce(into: [Character: Int]()) { counts, letter in
-            counts[letter, default: 0] += 1
-        }
-        //print("letterCount: \(letterCount)")
-
-        var i = 0
-        var matchCount = 0 // number of consecutive matching characters while scanning s2
-        var currentPermutation: [Character: Int] = [:] // for keeping track of the s2 scan
-
-        while i < s2.count {
-            let currentCharacter = Character(String(s2[i]))
-            if letterCount[currentCharacter] != nil {
-                matchCount = min(matchCount + 1, s1.count)
-                currentPermutation[currentCharacter, default: 0] += 1
-                //print("\(currentCharacter) (i: \(i)), currentPermutation: \(currentPermutation)")
-                if matchCount == s1.count {
-                    if i >= s1.count {
-                        // drop the out-out-window character
-                        let letterToDrop = Character(String(s2[i - s1.count]))
-                        if let count = currentPermutation[letterToDrop] {
-                            currentPermutation[letterToDrop] = max(0, count - 1)
-                        }
-                    }
-
-                    if letterCount == currentPermutation {
-                        return true
-                    }
-                }
-            } else {
-                matchCount = 0
-                currentPermutation.removeAll()
-            }
-            //print("\(currentCharacter) (i: \(i)), currentPermutation: \(currentPermutation)")
-            i += 1
         }
 
         return false
