@@ -12,15 +12,17 @@ final class TestDriver {
     static func runTestsOfChallenges(_ challenges: [Challenge.Type]) {
         challenges.forEach { challenge in
             print("[\(challenge.name)] begins")
+            let startTime = Date()
             challenge.runTests()
-            print("[\(challenge.name)] ends")
+            let durationText = String(format: "%.2fs", Date().timeIntervalSince(startTime))
+            print("[\(challenge.name)] ends - duration: \(durationText)")
             print()
         }
     }
 }
 
 TestDriver.runTestsOfChallenges([
-    Challenge_3304.self,
+//    Challenge_3304.self,
 //    Challenge_1137.self,
 //    Challenge_985.self,
 //    Challenge_984.self,
@@ -31,6 +33,7 @@ TestDriver.runTestsOfChallenges([
 //    Challenge_949.self,
 //    Challenge_885.self,
 //    Challenge_695.self,
+    Challenge_567.self,
 //    Challenge_509.self,
 //    Challenge_70.self,
 ])

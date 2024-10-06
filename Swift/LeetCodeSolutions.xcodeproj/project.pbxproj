@@ -25,6 +25,8 @@
 		ACF5FD2B2918B01D00F45C25 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD2E08B220F306C0017BC30 /* TreeNode.swift */; };
 		ACF5FD2D2918B1C300F45C25 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5FD2C2918B1C300F45C25 /* Challenge.swift */; };
 		ACFC81052CB0F47800D95F4E /* Challenge_3304.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFC81042CB0F47800D95F4E /* Challenge_3304.swift */; };
+		ACFC81072CB2055D00D95F4E /* Challenge_567.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFC81062CB2055D00D95F4E /* Challenge_567.swift */; };
+		ACFC810D2CB2432700D95F4E /* StringProtocol+LeetCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFC810C2CB2432700D95F4E /* StringProtocol+LeetCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +61,8 @@
 		ACD2E08B220F306C0017BC30 /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 		ACF5FD2C2918B1C300F45C25 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		ACFC81042CB0F47800D95F4E /* Challenge_3304.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_3304.swift; sourceTree = "<group>"; };
+		ACFC81062CB2055D00D95F4E /* Challenge_567.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_567.swift; sourceTree = "<group>"; };
+		ACFC810C2CB2432700D95F4E /* StringProtocol+LeetCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+LeetCode.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 			children = (
 				AC3DC91E291946B000C66E45 /* Challenge_70.swift */,
 				AC3DC91A291941EC00C66E45 /* Challenge_509.swift */,
+				ACFC81062CB2055D00D95F4E /* Challenge_567.swift */,
 				46BE78972116C84500529876 /* Challenge_695.swift */,
 				AC6EAB53220E7D9F00BDBBAB /* Challenge_949.swift */,
 				ACD2E089220F2FB50017BC30 /* Challenge_965.swift */,
@@ -131,6 +136,7 @@
 			children = (
 				ACF5FD2C2918B1C300F45C25 /* Challenge.swift */,
 				AC6EAB59220E991200BDBBAB /* Heap.swift */,
+				ACFC810C2CB2432700D95F4E /* StringProtocol+LeetCode.swift */,
 				ACD2E08B220F306C0017BC30 /* TreeNode.swift */,
 				46F40A1821175C5100C0BB44 /* TwoDimensionalMatrix.swift */,
 			);
@@ -201,8 +207,10 @@
 				AC6EAB5A220E991200BDBBAB /* Heap.swift in Sources */,
 				ACF5FD282918AFBA00F45C25 /* Challenge_976.swift in Sources */,
 				ACF5FD2B2918B01D00F45C25 /* TreeNode.swift in Sources */,
+				ACFC81072CB2055D00D95F4E /* Challenge_567.swift in Sources */,
 				ACFC81052CB0F47800D95F4E /* Challenge_3304.swift in Sources */,
 				ACF5FD292918AFC100F45C25 /* Challenge_984.swift in Sources */,
+				ACFC810D2CB2432700D95F4E /* StringProtocol+LeetCode.swift in Sources */,
 				ACF5FD222918AEFD00F45C25 /* Challenge_885.swift in Sources */,
 				46BE78952116C22400529876 /* main.swift in Sources */,
 				AC3DC91B291941EC00C66E45 /* Challenge_509.swift in Sources */,
