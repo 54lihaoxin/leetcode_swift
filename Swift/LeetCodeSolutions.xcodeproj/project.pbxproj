@@ -28,6 +28,7 @@
 		ACFC81072CB2055D00D95F4E /* Challenge_567.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFC81062CB2055D00D95F4E /* Challenge_567.swift */; };
 		ACFC810D2CB2432700D95F4E /* StringProtocol+LeetCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFC810C2CB2432700D95F4E /* StringProtocol+LeetCode.swift */; };
 		ACFC810F2CB32B6A00D95F4E /* Challenge_1813.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFC810E2CB32B6A00D95F4E /* Challenge_1813.swift */; };
+		ACFC81112CB34EEF00D95F4E /* Challenge_2423.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFC81102CB34EEF00D95F4E /* Challenge_2423.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +66,7 @@
 		ACFC81062CB2055D00D95F4E /* Challenge_567.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_567.swift; sourceTree = "<group>"; };
 		ACFC810C2CB2432700D95F4E /* StringProtocol+LeetCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+LeetCode.swift"; sourceTree = "<group>"; };
 		ACFC810E2CB32B6A00D95F4E /* Challenge_1813.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_1813.swift; sourceTree = "<group>"; };
+		ACFC81102CB34EEF00D95F4E /* Challenge_2423.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_2423.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				AC6EAB55220E924F00BDBBAB /* Challenge_985.swift */,
 				AC3DC91C2919451400C66E45 /* Challenge_1137.swift */,
 				ACFC810E2CB32B6A00D95F4E /* Challenge_1813.swift */,
+				ACFC81102CB34EEF00D95F4E /* Challenge_2423.swift */,
 				ACFC81042CB0F47800D95F4E /* Challenge_3304.swift */,
 			);
 			name = Easy;
@@ -209,6 +212,7 @@
 				ACF5FD262918AFA800F45C25 /* Challenge_970.swift in Sources */,
 				AC6EAB5A220E991200BDBBAB /* Heap.swift in Sources */,
 				ACF5FD282918AFBA00F45C25 /* Challenge_976.swift in Sources */,
+				ACFC81112CB34EEF00D95F4E /* Challenge_2423.swift in Sources */,
 				ACF5FD2B2918B01D00F45C25 /* TreeNode.swift in Sources */,
 				ACFC81072CB2055D00D95F4E /* Challenge_567.swift in Sources */,
 				ACFC81052CB0F47800D95F4E /* Challenge_3304.swift in Sources */,

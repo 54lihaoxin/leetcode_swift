@@ -23,7 +23,8 @@ final class TestDriver {
 
 TestDriver.runTestsOfChallenges([
 //    Challenge_3304.self,
-    Challenge_1813.self,
+    Challenge_2423.self,
+//    Challenge_1813.self,
 //    Challenge_1137.self,
 //    Challenge_985.self,
 //    Challenge_984.self,
