@@ -32,6 +32,7 @@
 		ACFC81132CB393FC00D95F4E /* Challenge_2591.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFC81122CB393FC00D95F4E /* Challenge_2591.swift */; };
 		ACFC81152CBC3BCD00D95F4E /* Challenge_359.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFC81142CBC3BCC00D95F4E /* Challenge_359.swift */; };
 		ACFC81192CBC5A6000D95F4E /* Challenge_200.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFC81182CBC5A6000D95F4E /* Challenge_200.swift */; };
+		ACFC811B2CBC771D00D95F4E /* Challenge_362.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFC811A2CBC771D00D95F4E /* Challenge_362.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +74,7 @@
 		ACFC81122CB393FC00D95F4E /* Challenge_2591.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_2591.swift; sourceTree = "<group>"; };
 		ACFC81142CBC3BCC00D95F4E /* Challenge_359.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge_359.swift; sourceTree = "<group>"; };
 		ACFC81182CBC5A6000D95F4E /* Challenge_200.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_200.swift; sourceTree = "<group>"; };
+		ACFC811A2CBC771D00D95F4E /* Challenge_362.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_362.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				ACFC81182CBC5A6000D95F4E /* Challenge_200.swift */,
+				ACFC811A2CBC771D00D95F4E /* Challenge_362.swift */,
 				ACFC81062CB2055D00D95F4E /* Challenge_567.swift */,
 				46F40A1D211795BE00C0BB44 /* Challenge_885.swift */,
 				ACFC810E2CB32B6A00D95F4E /* Challenge_1813.swift */,
@@ -234,6 +237,7 @@
 				ACFC810F2CB32B6A00D95F4E /* Challenge_1813.swift in Sources */,
 				AC3DC91B291941EC00C66E45 /* Challenge_509.swift in Sources */,
 				ACF5FD2D2918B1C300F45C25 /* Challenge.swift in Sources */,
+				ACFC811B2CBC771D00D95F4E /* Challenge_362.swift in Sources */,
 				ACFC81192CBC5A6000D95F4E /* Challenge_200.swift in Sources */,
 				ACF5FD2A2918AFC700F45C25 /* Challenge_985.swift in Sources */,
 				ACF5FD232918AF6E00F45C25 /* Challenge_695.swift in Sources */,
