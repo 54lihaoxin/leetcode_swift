@@ -35,19 +35,15 @@
  
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_949: Challenge {
-    
-    static let name = "Challenge 949"
-    
-    static func runTests() {
+final class SolutionTests949: XCTestCase {
+    func testSolution() throws {
         let solution = Solution()
-        guard "" == solution.largestTimeFromDigits([5, 5, 5, 5]) else { fatalError() }
-        guard "23:41" == solution.largestTimeFromDigits([1, 2, 3, 4]) else { fatalError() }
-        guard "04:00" == solution.largestTimeFromDigits([0, 4, 0, 0]) else { fatalError() }
-        guard "06:26" == solution.largestTimeFromDigits([2, 0, 6, 6]) else { fatalError() }
-        print("All tests passed")
+        XCTAssertEqual("", solution.largestTimeFromDigits([5, 5, 5, 5]))
+        XCTAssertEqual("23:41", solution.largestTimeFromDigits([1, 2, 3, 4]))
+        XCTAssertEqual("04:00", solution.largestTimeFromDigits([0, 4, 0, 0]))
+        XCTAssertEqual("06:26", solution.largestTimeFromDigits([2, 0, 6, 6]))
     }
 }
 

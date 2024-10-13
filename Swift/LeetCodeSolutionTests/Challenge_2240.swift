@@ -1,13 +1,13 @@
 //
-//  Challenge_2240.swift
-//  LeetCodeSolutions
+//  SolutionTests.swift
+//  SolutionTests
 //
 //  Created by Haoxin Li on 10/13/24.
 //  Copyright © 2024 Haoxin Li. All rights reserved.
 //
 
 /*
- 
+
  2240. Number of Ways to Buy Pens and Pencils
  Medium
  Topics
@@ -41,16 +41,13 @@
 
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_2240: Challenge {
-
-    static let name = "Challenge 2240"
-
-    static func runTests() {
+final class SolutionTests2240: XCTestCase {
+    func testSolution() throws {
         let solution = Solution()
-        assert(solution.waysToBuyPensPencils(20, 10, 5) == 9)
-        assert(solution.waysToBuyPensPencils(5, 10, 10) == 1)
+        XCTAssertEqual(9, solution.waysToBuyPensPencils(20, 10, 5))
+        XCTAssertEqual(1, solution.waysToBuyPensPencils(5, 10, 10))
     }
 }
 

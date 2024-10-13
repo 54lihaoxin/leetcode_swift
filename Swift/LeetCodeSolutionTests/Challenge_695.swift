@@ -31,34 +31,32 @@
  
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_695: Challenge {
-    
-    static let name = "Challenge 695"
-    
-    static func runTests() {
+final class SolutionTests695: XCTestCase {
+    func testSolution() throws {
         let solution = Solution()
-        guard 0 == solution.maxAreaOfIsland([[]]) else { fatalError() }
-        guard 0 == solution.maxAreaOfIsland([[0,0,0,0,0,0,0,0]]) else { fatalError() }
-        guard 6 == solution.maxAreaOfIsland([[0,0,1,0,0,0,0,1,0,0,0,0,0],
-                                             [0,0,0,0,0,0,0,1,1,1,0,0,0],
-                                             [0,1,1,0,1,0,0,0,0,0,0,0,0],
-                                             [0,1,0,0,1,1,0,0,1,0,1,0,0],
-                                             [0,1,0,0,1,1,0,0,1,1,1,0,0],
-                                             [0,0,0,0,0,0,0,0,0,0,1,0,0],
-                                             [0,0,0,0,0,0,0,1,1,1,0,0,0],
-                                             [0,0,0,0,0,0,0,1,1,0,0,0,0]]) else { fatalError() }
-        guard 4 == solution.maxAreaOfIsland([[1,1,0,0,0],
-                                             [1,1,0,0,0],
-                                             [0,0,0,1,1],
-                                             [0,0,0,1,1]]) else { fatalError() }
-        print("All tests passed")
+        XCTAssertEqual(0, solution.maxAreaOfIsland([[]]))
+        XCTAssertEqual(0, solution.maxAreaOfIsland([[0,0,0,0,0,0,0,0]]))
+        XCTAssertEqual(6, solution.maxAreaOfIsland([
+            [0,0,1,0,0,0,0,1,0,0,0,0,0],
+            [0,0,0,0,0,0,0,1,1,1,0,0,0],
+            [0,1,1,0,1,0,0,0,0,0,0,0,0],
+            [0,1,0,0,1,1,0,0,1,0,1,0,0],
+            [0,1,0,0,1,1,0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0,0,0,0,1,0,0],
+            [0,0,0,0,0,0,0,1,1,1,0,0,0],
+            [0,0,0,0,0,0,0,1,1,0,0,0,0]]))
+        XCTAssertEqual(4, solution.maxAreaOfIsland([
+            [1,1,0,0,0],
+            [1,1,0,0,0],
+            [0,0,0,1,1],
+            [0,0,0,1,1]
+        ]))
     }
 }
 
 fileprivate final class Solution {
-    
     func maxAreaOfIsland(_ grid: [[Int]]) -> Int {
         return TwoDimensionalWorld(matrix: grid).exploreForMaxIslandSize()
     }

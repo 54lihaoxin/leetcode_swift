@@ -42,16 +42,12 @@
  
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_976: Challenge {
-    
-    static let name = "Challenge 976"
-    
-    static func runTests() {
+final class SolutionTests976: XCTestCase {
+    func testSolution() throws {
         let solution = Solution()
-        guard 0 == solution.largestPerimeter([1,2,3]) else { fatalError() }
-        print("All tests passed")
+        XCTAssertEqual(0, solution.largestPerimeter([1,2,3]))
     }
 }
 

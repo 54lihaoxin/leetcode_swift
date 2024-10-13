@@ -48,24 +48,21 @@
 
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_2591: Challenge {
-
-    static let name = "Challenge 2591"
-
-    static func runTests() {
+final class SolutionTests2591: XCTestCase {
+    func testSolution() throws {
         let solution = Solution()
-        guard 1 == solution.distMoney(20, 3) else { fatalError() }
-        guard 2 == solution.distMoney(16, 2) else { fatalError() }
-        guard 0 == solution.distMoney(2, 2) else { fatalError() }
-        guard 0 == solution.distMoney(8, 2) else { fatalError() }
-        guard 1 == solution.distMoney(17, 2) else { fatalError() }
-        guard -1 == solution.distMoney(1, 2) else { fatalError() }
-        guard 1 == solution.distMoney(10, 3) else { fatalError() }
-        guard 1 == solution.distMoney(11, 3) else { fatalError() }
-        guard 0 == solution.distMoney(12, 2) else { fatalError() }
-        guard 1 == solution.distMoney(12, 3) else { fatalError() }
+        XCTAssertEqual(1, solution.distMoney(20, 3))
+        XCTAssertEqual(2, solution.distMoney(16, 2))
+        XCTAssertEqual(0, solution.distMoney(2, 2))
+        XCTAssertEqual(0, solution.distMoney(8, 2))
+        XCTAssertEqual(1, solution.distMoney(17, 2))
+        XCTAssertEqual(-1, solution.distMoney(1, 2))
+        XCTAssertEqual(1, solution.distMoney(10, 3))
+        XCTAssertEqual(1, solution.distMoney(11, 3))
+        XCTAssertEqual(0, solution.distMoney(12, 2))
+        XCTAssertEqual(1, solution.distMoney(12, 3))
     }
 }
 

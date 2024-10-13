@@ -6,8 +6,6 @@
 //  Copyright © 2022 Haoxin Li. All rights reserved.
 //
 
-import Foundation
-
 /*
 
  70. Climbing Stairs
@@ -53,20 +51,16 @@ import Foundation
 
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_70: Challenge {
-
-    static let name = "Challenge 70"
-
-    static func runTests() {
+final class SolutionTests70: XCTestCase {
+    func testSolution() throws {
         let solution = Solution()
-        guard 0 == solution.climbStairs(0) else { fatalError() }
-        guard 1 == solution.climbStairs(1) else { fatalError() }
-        guard 2 == solution.climbStairs(2) else { fatalError() }
-        guard 3 == solution.climbStairs(3) else { fatalError() }
-        guard 5 == solution.climbStairs(4) else { fatalError() }
-        print("All tests passed")
+        XCTAssertEqual(0, solution.climbStairs(0))
+        XCTAssertEqual(1, solution.climbStairs(1))
+        XCTAssertEqual(2, solution.climbStairs(2))
+        XCTAssertEqual(3, solution.climbStairs(3))
+        XCTAssertEqual(5, solution.climbStairs(4))
     }
 }
 

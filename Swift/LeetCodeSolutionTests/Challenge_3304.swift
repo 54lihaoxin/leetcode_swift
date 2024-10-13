@@ -55,39 +55,36 @@
 
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_3304: Challenge {
-
-    static let name = "Challenge 3304"
-
-    static func runTests() {
+final class SolutionTests3304: XCTestCase {
+    func testSolution() throws {
         // essentially counting the 1's of (k - 1)
         let solution = Solution()
         
         // no op, 0th (0) of "a" is "a"
-        guard "a" == solution.kthCharacter(1) else { fatalError() }
+        XCTAssertEqual("a", solution.kthCharacter(1))
         
         // "a" -> "ab", 1st (1) of "ab" is "b"
-        guard "b" == solution.kthCharacter(2) else { fatalError() }
+        XCTAssertEqual("b", solution.kthCharacter(2))
         
         // "a" -> "abbc", 2nd (10) of "abbc" is "b"
-        guard "b" == solution.kthCharacter(3) else { fatalError() }
+        XCTAssertEqual("b", solution.kthCharacter(3))
         
         // "a" -> "abbc", 3th (11) of "abbc" is "c"
-        guard "c" == solution.kthCharacter(4) else { fatalError() }
+        XCTAssertEqual("c", solution.kthCharacter(4))
         
         // "a" -> "abbcbccd", 4th (100) of "abbcbccd" is "b"
-        guard "b" == solution.kthCharacter(5) else { fatalError() }
+        XCTAssertEqual("b", solution.kthCharacter(5))
         
         // "a" -> "abbcbccd", 5th (101) of "abbcbccd" is "c"
-        guard "c" == solution.kthCharacter(6) else { fatalError() }
+        XCTAssertEqual("c", solution.kthCharacter(6))
         
         // "a" -> "abbcbccd", 6th (110) of "abbcbccd" is "c"
-        guard "c" == solution.kthCharacter(7) else { fatalError() }
+        XCTAssertEqual("c", solution.kthCharacter(7))
         
         // "a" -> "abbcbccd", 7th (111) of "abbcbccd" is "d"
-        guard "d" == solution.kthCharacter(8) else { fatalError() }
+        XCTAssertEqual("d", solution.kthCharacter(8))
         
         print("All tests passed")
     }

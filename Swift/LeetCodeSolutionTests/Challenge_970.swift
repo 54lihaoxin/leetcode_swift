@@ -42,16 +42,13 @@
  
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_970: Challenge {
-    
-    static let name = "Challenge 970"
-    
-    static func runTests() {
+
+final class SolutionTests970: XCTestCase {
+    func testSolution() throws {
         let solution = Solution()
-        guard [2,3,4,5,7,9,10] == solution.powerfulIntegers(2, 3, 10) else { fatalError() }
-        print("All tests passed")
+        XCTAssertEqual([2,3,4,5,7,9,10], solution.powerfulIntegers(2, 3, 10))
     }
 }
 

@@ -53,20 +53,16 @@
  
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_509: Challenge {
-    
-    static let name = "Challenge 509"
-    
-    static func runTests() {
+final class SolutionTests509: XCTestCase {
+    func testSolution() throws {
         let solution = Solution()
-        guard 0 == solution.fib(0) else { fatalError() }
-        guard 1 == solution.fib(1) else { fatalError() }
-        guard 1 == solution.fib(2) else { fatalError() }
-        guard 2 == solution.fib(3) else { fatalError() }
-        guard 3 == solution.fib(4) else { fatalError() }
-        print("All tests passed")
+        XCTAssertEqual(0, solution.fib(0))
+        XCTAssertEqual(1, solution.fib(1))
+        XCTAssertEqual(1, solution.fib(2))
+        XCTAssertEqual(2, solution.fib(3))
+        XCTAssertEqual(3, solution.fib(4))
     }
 }
 

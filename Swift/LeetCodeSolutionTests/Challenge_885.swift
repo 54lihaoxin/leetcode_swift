@@ -38,18 +38,14 @@
  
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_885: Challenge {
-    
-    static let name = "Challenge 885"
-    
-    static func runTests() {
+final class SolutionTests885: XCTestCase {
+    func testSolution() throws {
         let solution = Solution()
-        guard 1 == solution.numRescueBoats([1,2], 3) else { fatalError() }
-        guard 3 == solution.numRescueBoats([3,2,2,1], 3) else { fatalError() }
-        guard 4 == solution.numRescueBoats([3,5,3,4], 5) else { fatalError() }
-        print("All tests passed")
+        XCTAssertEqual(1, solution.numRescueBoats([1,2], 3))
+        XCTAssertEqual(3, solution.numRescueBoats([3,2,2,1], 3))
+        XCTAssertEqual(4, solution.numRescueBoats([3,5,3,4], 5))
     }
 }
 

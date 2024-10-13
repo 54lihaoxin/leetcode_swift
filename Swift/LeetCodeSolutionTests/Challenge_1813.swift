@@ -65,21 +65,17 @@
 
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_1813: Challenge {
-
-    static let name = "Challenge 1813"
-
-    static func runTests() {
+final class SolutionTests1813: XCTestCase {
+    func testSolution() throws {
         let solution = Solution()
-        guard solution.areSentencesSimilar("My name is Haley", "My Haley") else { fatalError() }
-        guard !solution.areSentencesSimilar("of", "A lot of words") else { fatalError() }
-        guard solution.areSentencesSimilar("Eating right now", "Eating") else { fatalError() }
-        guard solution.areSentencesSimilar("a b c", "a b c") else { fatalError() }
-        guard solution.areSentencesSimilar("a", "a aa a") else { fatalError() }
-        guard solution.areSentencesSimilar("A A AAa", "A AAa") else { fatalError() }
-        print("All tests passed")
+        XCTAssertTrue(solution.areSentencesSimilar("My name is Haley", "My Haley"))
+        XCTAssertFalse(solution.areSentencesSimilar("of", "A lot of words"))
+        XCTAssertTrue(solution.areSentencesSimilar("Eating right now", "Eating"))
+        XCTAssertTrue(solution.areSentencesSimilar("a b c", "a b c"))
+        XCTAssertTrue(solution.areSentencesSimilar("a", "a aa a"))
+        XCTAssertTrue(solution.areSentencesSimilar("A A AAa", "A AAa"))
     }
 }
 

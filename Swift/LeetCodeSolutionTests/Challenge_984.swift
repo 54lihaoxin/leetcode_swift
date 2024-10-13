@@ -36,16 +36,14 @@
  
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_984: Challenge {
-    
-    static let name = "Challenge 984"
-    
-    static func runTests() {
+
+
+final class SolutionTests984: XCTestCase {
+    func testSolution() throws {
         let solution = Solution()
-        guard "bba" == solution.strWithout3a3b(1, 2) else { fatalError() }
-        print("All tests passed")
+        XCTAssertEqual("bba", solution.strWithout3a3b(1, 2))
     }
 }
 

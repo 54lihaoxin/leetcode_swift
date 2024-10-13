@@ -6,8 +6,6 @@
 //  Copyright © 2022 Haoxin Li. All rights reserved.
 //
 
-import Foundation
-
 /*
 
  362. Design Hit Counter
@@ -52,21 +50,18 @@ import Foundation
 
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_362: Challenge {
-
-    static let name = "Challenge 362"
-
-    static func runTests() {
+final class SolutionTests362: XCTestCase {
+    func testSolution() throws {
         let hitCounter = HitCounter()
         hitCounter.hit(1);       // hit at timestamp 1.
         hitCounter.hit(2);       // hit at timestamp 2.
         hitCounter.hit(3);       // hit at timestamp 3.
-        guard 3 == hitCounter.getHits(4) else { fatalError() } // get hits at timestamp 4, return 3.
+        XCTAssertEqual(3, hitCounter.getHits(4))
         hitCounter.hit(300);     // hit at timestamp 300.
-        guard 4 == hitCounter.getHits(300) else { fatalError() } // get hits at timestamp 300, return 4.
-        guard 3 == hitCounter.getHits(301) else { fatalError() } // get hits at timestamp 301, return 3.
+        XCTAssertEqual(4, hitCounter.getHits(300))
+        XCTAssertEqual(3, hitCounter.getHits(301))
     }
 }
 

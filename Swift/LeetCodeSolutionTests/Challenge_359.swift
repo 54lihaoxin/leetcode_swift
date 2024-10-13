@@ -6,8 +6,6 @@
 //  Copyright © 2022 Haoxin Li. All rights reserved.
 //
 
-import Foundation
-
 /*
 
  359. Logger Rate Limiter
@@ -51,20 +49,17 @@ import Foundation
 
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_359: Challenge {
-
-    static let name = "Challenge 359"
-
-    static func runTests() {
+final class SolutionTests359: XCTestCase {
+    func testSolution() throws {
         let logger = Logger()
-        guard logger.shouldPrintMessage(1, "foo") else { fatalError() } // return true, next allowed timestamp for "foo" is 1 + 10 = 11
-        guard logger.shouldPrintMessage(2, "bar") else { fatalError() } // return true, next allowed timestamp for "bar" is 2 + 10 = 12
-        guard !logger.shouldPrintMessage(3, "foo") else { fatalError() } // 3 < 11, return false
-        guard !logger.shouldPrintMessage(8, "bar") else { fatalError() } // 8 < 12, return false
-        guard !logger.shouldPrintMessage(10, "foo") else { fatalError() } // 10 < 11, return false
-        guard logger.shouldPrintMessage(11, "foo") else { fatalError() } // 11 >= 11, return true, next allowed timestamp for "foo" is 11 + 10 = 21
+        XCTAssertTrue(logger.shouldPrintMessage(1, "foo")) // return true, next allowed timestamp for "foo" is 1 + 10 = 11
+        XCTAssertTrue(logger.shouldPrintMessage(2, "bar")) // return true, next allowed timestamp for "bar" is 2 + 10 = 12
+        XCTAssertFalse(logger.shouldPrintMessage(3, "foo")) // 3 < 11, return false
+        XCTAssertFalse(logger.shouldPrintMessage(8, "bar")) // 8 < 12, return false
+        XCTAssertFalse(logger.shouldPrintMessage(10, "foo")) // 10 < 11, return false
+        XCTAssertTrue(logger.shouldPrintMessage(11, "foo")) // 11 >= 11, return true, next allowed timestamp for "foo" is 11 + 10 = 21
     }
 }
 

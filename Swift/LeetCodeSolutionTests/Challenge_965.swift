@@ -35,20 +35,16 @@
  
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_965: Challenge {
-    
-    static let name = "Challenge 965"
-    
-    static func runTests() {
+final class SolutionTests965: XCTestCase {
+    func testSolution() throws {
         let solution = Solution()
-        guard false == solution.isUnivalTree({
+        XCTAssertFalse(solution.isUnivalTree({
             let root = TreeNode(1)
             root.left = TreeNode(2)
             return root
-            }()) else { fatalError() }
-        print("All tests passed")
+        }()))
     }
 }
 

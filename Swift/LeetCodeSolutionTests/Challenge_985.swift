@@ -42,16 +42,13 @@
  
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_985: Challenge {
-    
-    static let name = "Challenge 985"
-    
-    static func runTests() {
+
+final class SolutionTests985: XCTestCase {
+    func testSolution() throws {
         let solution = Solution()
-        guard [8,6,2,4] == solution.sumEvenAfterQueries([1,2,3,4], [[1,0],[-3,1],[-4,0],[2,3]]) else { fatalError() }
-        print("All tests passed")
+        XCTAssertEqual([8,6,2,4], solution.sumEvenAfterQueries([1,2,3,4], [[1,0],[-3,1],[-4,0],[2,3]]))
     }
 }
 

@@ -42,25 +42,22 @@
 
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_2423: Challenge {
-
-    static let name = "Challenge 3304"
-
-    static func runTests() {
+final class SolutionTests2423: XCTestCase {
+    func testSolution() throws {
         let solution = Solution()
-        guard solution.equalFrequency("abcc") else { fatalError() }
-        guard !solution.equalFrequency("aazz") else { fatalError() }
-        guard solution.equalFrequency("bac") else { fatalError() }
-        guard solution.equalFrequency("aca") else { fatalError() }
-        guard !solution.equalFrequency("ddaccb") else { fatalError() }
-        guard solution.equalFrequency("cccaa") else { fatalError() }
-        guard solution.equalFrequency("abbcc") else { fatalError() }
-        guard solution.equalFrequency("zz") else { fatalError() }
-        guard solution.equalFrequency("cccd") else { fatalError() }
-        guard !solution.equalFrequency("cbccca") else { fatalError() }
-        guard !solution.equalFrequency("ceeeec") else { fatalError() }
+        XCTAssertTrue(solution.equalFrequency("abcc"))
+        XCTAssertFalse(solution.equalFrequency("aazz"))
+        XCTAssertTrue(solution.equalFrequency("bac"))
+        XCTAssertTrue(solution.equalFrequency("aca"))
+        XCTAssertFalse(solution.equalFrequency("ddaccb"))
+        XCTAssertTrue(solution.equalFrequency("cccaa"))
+        XCTAssertTrue(solution.equalFrequency("abbcc"))
+        XCTAssertTrue(solution.equalFrequency("zz"))
+        XCTAssertTrue(solution.equalFrequency("cccd"))
+        XCTAssertFalse(solution.equalFrequency("cbccca"))
+        XCTAssertFalse(solution.equalFrequency("ceeeec"))
     }
 }
 

@@ -6,8 +6,6 @@
 //  Copyright © 2022 Haoxin Li. All rights reserved.
 //
 
-import Foundation
-
 /*
 
  200. Number of Islands
@@ -49,29 +47,26 @@ import Foundation
 
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_200: Challenge {
-
-    static let name = "Challenge 200"
-
-    static func runTests() {
+final class SolutionTests200: XCTestCase {
+    func testSolution() throws {
         let solution = Solution()
-        guard 1 == solution.numIslands([
+        XCTAssertEqual(1, solution.numIslands([
             ["1","1","1","1","0"],
             ["1","1","0","1","0"],
             ["1","1","0","0","0"],
             ["0","0","0","0","0"]
-        ]) else { fatalError() }
+        ]))
 
-        guard 3 == solution.numIslands([
+        XCTAssertEqual(3, solution.numIslands([
             ["1","1","0","0","0"],
             ["1","1","0","0","0"],
             ["0","0","1","0","0"],
             ["0","0","0","1","1"]
-        ]) else { fatalError() }
+        ]))
 
-        guard 2 == solution.numIslands([
+        XCTAssertEqual(2, solution.numIslands([
             ["1","1","1","1","1","0","1","1","1","1"],
             ["1","0","1","0","1","1","1","1","1","1"],
             ["0","1","1","1","0","1","1","1","1","1"],
@@ -82,7 +77,7 @@ enum Challenge_200: Challenge {
             ["1","0","1","1","1","0","0","1","1","1"],
             ["1","1","1","1","1","1","1","1","0","1"],
             ["1","0","1","1","1","1","1","1","1","0"]
-        ]) else { fatalError() }
+        ]))
     }
 }
 

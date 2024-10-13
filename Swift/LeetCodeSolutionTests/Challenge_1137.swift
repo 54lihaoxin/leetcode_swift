@@ -6,8 +6,6 @@
 //  Copyright © 2022 Haoxin Li. All rights reserved.
 //
 
-import Foundation
-
 /*
 
  1137. N-th Tribonacci Number
@@ -52,23 +50,20 @@ import Foundation
 
  */
 
-import Foundation
+import XCTest
 
-enum Challenge_1137: Challenge {
 
-    static let name = "Challenge 1137"
-
-    static func runTests() {
+final class SolutionTests1137: XCTestCase {
+    func testSolution() throws {
         let solution = Solution()
-        guard 0 == solution.tribonacci(0) else { fatalError() }
-        guard 1 == solution.tribonacci(1) else { fatalError() }
-        guard 1 == solution.tribonacci(2) else { fatalError() }
-        guard 2 == solution.tribonacci(3) else { fatalError() }
-        guard 4 == solution.tribonacci(4) else { fatalError() }
-        guard 7 == solution.tribonacci(5) else { fatalError() }
-        guard 13 == solution.tribonacci(6) else { fatalError() }
-        guard 1389537 == solution.tribonacci(25) else { fatalError() }
-        print("All tests passed")
+        XCTAssertEqual(0, solution.tribonacci(0))
+        XCTAssertEqual(1, solution.tribonacci(1))
+        XCTAssertEqual(1, solution.tribonacci(2))
+        XCTAssertEqual(2, solution.tribonacci(3))
+        XCTAssertEqual(4, solution.tribonacci(4))
+        XCTAssertEqual(7, solution.tribonacci(5))
+        XCTAssertEqual(13, solution.tribonacci(6))
+        XCTAssertEqual(1389537, solution.tribonacci(25))
     }
 }
 
